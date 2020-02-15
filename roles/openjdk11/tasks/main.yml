@@ -1,0 +1,7 @@
+---
+# tasks file for role-openjdk
+- include: install.yaml
+- include: configure.yaml
+- include: service.yaml
+
+
