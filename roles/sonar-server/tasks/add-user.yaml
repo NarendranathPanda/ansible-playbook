@@ -1,0 +1,6 @@
+- name: Add the user 'sonar' with a specific uid and a primary group of 'sonar'
+  user:
+    name: sonar
+    comment: Sonar User 
+    uid: 1040
+    group: sonar

@@ -1,0 +1,4 @@
+- name: Ensure group "sonar" exists
+  group:
+    name: sonar
+    state: present

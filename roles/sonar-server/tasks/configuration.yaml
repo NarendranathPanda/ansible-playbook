@@ -1,0 +1,105 @@
+- name: Recursively change ownership of a sonarqube
+  file:
+    path: /opt/sonarqube
+    state: directory
+    recurse: yes
+    owner: sonar
+    group: sonar
+
+- name: Create a sonarqube  directory if it does not exist
+  file:
+    path: /var/sonarqube
+    state: directory
+    owner: sonar
+    group: sonar
+    recurse: yes
+
+- name: Create a sonarqube/temp directory if it does not exist
+  file:
+    path: /var/sonarqube/temp
+    state: directory
+    owner: sonar
+    group: sonar
+    recurse: yes
+
+- name: Create a sonarqube/data directory if it does not exist
+  file:
+    path: /var/sonarqube/data
+    state: directory
+    owner: sonar
+    group: sonar
+    recurse: yes
+
+- name: Update SONAR_HOME
+  blockinfile:
+    path: /root/.bashrc
+    block: | 
+     export SONAR_HOME=/opt/sonarqube
+     export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.6.10-1.el7_7.x86_64
+
+- name: Configure SonarQube DB username
+  lineinfile:
+   path: "/opt/sonarqube/conf/sonar.properties"
+   regexp: "^sonar.jdbc.username="
+   insertafter: "^#sonar.jdbc.username="
+   line: "sonar.jdbc.username={{ sonar_db_user }}"
+
+- name: Configure SonarQube DB password
+  lineinfile:
+    path: "/opt/sonarqube/conf/sonar.properties"
+    regexp: "^sonar.jdbc.password="
+    insertafter: "^#sonar.jdbc.password="
+    line: "sonar.jdbc.password={{ sonar_db_pass }}" 
+
+- name: Configure SonarQube DB connection string
+  lineinfile:
+    path: "/opt/sonarqube/conf/sonar.properties"
+    regexp: "sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
+    insertafter: "^#sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
+    line: "sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
+
+- name: Configure SonarQube sonar.web.javaOpts
+  lineinfile:
+    path: "/opt/sonarqube/conf/sonar.properties"
+    regexp: "^sonar.web.javaOpts="
+    insertafter: "^#sonar.web.javaOpts="
+    line: "sonar.web.javaOpts={{ sonar_web_javaopts }}"
+
+- name: Configure SonarQube sonar.ce.javaOpts
+  lineinfile:
+    path: "/opt/sonarqube/conf/sonar.properties"
+    regexp: "^sonar.ce.javaOpts="
+    insertafter: "^#sonar.ce.javaOpts="
+    line: "sonar.ce.javaOpts={{ sonar_ce_javaopts }}"
+
+- name: Configure SonarQube sonar.search.javaOpts
+  lineinfile:
+    path: "/opt/sonarqube/conf/sonar.properties"
+    regexp: "^sonar.search.javaOpts="
+    insertafter: "^#sonar.search.javaOpts="
+    line: "sonar.search.javaOpts={{ sonar_search_javaopts }}"
+- name: Configure SonarQube sonar.path.data
+  lineinfile:
+   path: "/opt/sonarqube/conf/sonar.properties"
+   regexp: "^sonar.path.data="
+   insertafter: "^#sonar.path.data="
+   line: "sonar.path.data={{ sonar_path_data }}"
+
+- name: Configure SonarQube sonar.path.temp
+  lineinfile:
+   path: "/opt/sonarqube/conf/sonar.properties"
+   regexp: "^sonar.path.temp="
+   insertafter: "^#sonar.path.temp="
+   line: "sonar.path.data={{ sonar_path_temp }}"
+- name: Configure wrapper
+  lineinfile:
+   path: "/opt/sonarqube/conf/wrapper.conf"
+   regexp: "^wrapper.java.command="
+   insertafter: "^#wrapper.java.command="
+   line: "wrapper.java.command={{ wrapper_java_path }}"
+
+
+
+
+
+

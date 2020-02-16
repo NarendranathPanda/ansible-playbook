@@ -1,9 +1,7 @@
 # install open jdk package
 - name: "Yum Install {{ java_version}}"
-     yum:
-      name: "{{ item }}"
-      state: latest
-     with_items:
-      - "{{java_version}}" 
-     become: true
-     become_method: sudo 
+  yum:
+    name: "{{ java_version }}"
+    state: latest
+  become: true
+  become_method: sudo 

@@ -1,0 +1,20 @@
+- name: copy the sonar service file
+  copy:
+    src: sonar.service
+    dest: /etc/systemd/system/
+
+- name: reload service sonar in all cases
+  systemd:
+    name: sonar
+    state: reloaded
+
+- name: enable service sonar and ensure it is not masked
+  systemd:
+    name: sonar
+    enabled: yes
+    masked: no
+
+- name: Start service sonar if not started
+  service:
+    name: sonar
+    state: started

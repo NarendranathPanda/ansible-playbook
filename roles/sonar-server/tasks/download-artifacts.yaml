@@ -1,0 +1,19 @@
+---
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  unarchive:
+    src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.1.0.31237.zip
+    dest: /opt/
+    remote_src: yes
+
+- name: Check the Sonar downloaded folder
+  stat: path=/opt/sonarqube-8.1.0.31237
+  register: sonarqube_version_dir
+
+- name: Delete the Sonarqube folder
+  file:
+   path: /opt/sonarqube
+   state: absent 
+
+- name: Move sonarqube-8.1.0.31237 as sonarqube
+  command: mv /opt/sonarqube-8.1.0.31237 /opt/sonarqube
+  when: sonarqube_version_dir.stat.exists
