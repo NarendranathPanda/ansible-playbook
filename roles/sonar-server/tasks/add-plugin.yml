@@ -1,6 +1,6 @@
 - name: copy the sonar plugin files
   copy:
-    src: "{{ item }}"
+    src: files/plugins/{{ item }}"
     dest: /opt/sonarqube/extensions/plugins/
   with_items:
    - sonar-cobertura-plugin-2.0.jar
