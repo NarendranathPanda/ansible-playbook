@@ -8,4 +8,5 @@ sonar_ce_javaopts: -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
 sonar_web_javaopts: -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
 sonar_db_pass: sonar@123
 sonar_db_user: sonar
+sonar_db: sonar
 
