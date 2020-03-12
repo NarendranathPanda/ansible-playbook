@@ -56,7 +56,7 @@
     path: "/opt/sonarqube/conf/sonar.properties"
     regexp: "sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
     insertafter: "^#sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
-    line: "sonar.jdbc.url=jdbc:postgresql://localhost/sonar"
+    line: "sonar.jdbc.url=jdbc:postgresql://localhost/{{sonar_db}}"
 
 - name: Configure SonarQube sonar.web.javaOpts
   lineinfile:
