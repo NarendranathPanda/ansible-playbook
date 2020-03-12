@@ -3,6 +3,7 @@
 - import_tasks: download-artifacts.yaml
 - import_tasks: add-group.yaml
 - import_tasks: add-user.yaml
+- import_tasks: pre-config.yml
 - import_tasks: configuration.yaml
 - import_tasks: service.yaml
 - import_tasks: add-plugin.yml
