@@ -1,0 +1,6 @@
+- name: config sysctl for fs.file-max and vm.max_map_count
+  sysctl: name={{ item.key }} value={{ item.value }}
+  with_items:
+    - { key: "vm.max_map_count", value: "262144" }
+    - { key: "fs.file-max", value: "65536"}
+    
