@@ -1,6 +1,6 @@
 - name: copy the sonar plugin files
   copy:
-    src: files/plugins/{{ item }}"
+    src: plugins/{{ item }}"
     dest: /opt/sonarqube/extensions/plugins/
   become_user: sonar
   with_items:
