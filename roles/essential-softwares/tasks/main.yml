@@ -1,0 +1,8 @@
+- name: Ensure a list of packages installed
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - git
+    - maven
+
