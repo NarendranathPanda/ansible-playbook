@@ -27,7 +27,10 @@
    path: "/etc/sysconfig/jenkins"
    regexp: JENKINS_LISTEN_ADDRESS=""
    line: JENKINS_LISTEN_ADDRESS="0.0.0.0"
-
+- name: Adding user jenkins  
+  user: name=jenkins
+        group=root
+        append=yes
 - name: Print init password Jenkins
   debug:
    var: result.stdout
