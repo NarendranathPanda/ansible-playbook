@@ -1,5 +1,0 @@
----
-- hosts: <sonar-server>
-  roles:
-    - openjdk11
-    - sonar-server
