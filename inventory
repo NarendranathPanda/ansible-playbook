@@ -1,5 +1,5 @@
-worker1  ansible_host=192.168.0.117 ansible_ssh_port=22 ansible_user=root ansible_password=root123
-worker2  ansible_host=192.168.0.185 ansible_ssh_port=22 ansible_user=root ansible_password=root123
+worker1  ansible_host=192.168.0.117 ansible_ssh_port=22 ansible_user=root
+worker2  ansible_host=192.168.0.185 ansible_ssh_port=22 ansible_user=root 
 
 [centos7]
 worker1
