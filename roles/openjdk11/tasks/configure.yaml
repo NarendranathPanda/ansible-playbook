@@ -1,15 +1,13 @@
+---
+- name: Copy the JDK configuration File
+  copy:
+    src: jdk.sh
+    dest: /etc/
 - name: Set Environment Variable such as Java Home
-  shell: "export JAVA_HOME=/usr/lib/{{java_version}}"
-- name: line insert
-  lineinfile:
-    path: /root/.bashrc
-    line: 'export JAVA_HOME=/usr/lib/{{java_version}}'
-    insertbefore: EOF
-- name: Set Default java for the System 
-#  shell: "alternatives --set java /usr/lib/{{java_version}}/bin/java"
-  shell: "source /root/.bashrc"
-  become: true
-  become_method: sudo
-- debug:
-        msg: "Java Version : {{java_version}} installed "
+  shell: "source /etc/jdk.sh"
+  register: output
+- name: Which java
+  debug:
+    msg: '{{ output }}'
+
 
