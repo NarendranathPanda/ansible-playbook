@@ -1,0 +1,21 @@
+- name: copy the jenkins service file
+  copy:
+    src: jenkins.service
+    dest: /etc/systemd/system/
+
+- name: reload service jenkins in all cases
+  systemd:
+    name: jenkins
+    state: reloaded
+
+- name: enable service jenkins and ensure it is not masked
+  systemd:
+    name: jenkins
+    enabled: yes
+    masked: no
+
+- name: Start service jenkins if not started
+  service:
+    name: jenkins
+    state: started
+

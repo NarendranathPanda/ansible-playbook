@@ -1,6 +1,8 @@
 
 ---
 # tasks file for jenkins-server
+- import_tasks: pre-install-jenkins.yml
 - import_tasks: install-jenkins.yml
-- import_tasks: service.yml
+- import_tasks: post-install-jenkins.yml
+
 
