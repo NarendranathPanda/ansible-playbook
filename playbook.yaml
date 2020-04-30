@@ -7,3 +7,9 @@
   roles:
     - openjdk11
     - jenkins 
+
+- hosts: sonar
+  roles:
+    - openjdk11
+    - sonar-server
+        
