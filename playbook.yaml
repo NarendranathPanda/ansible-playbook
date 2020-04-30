@@ -1,0 +1,9 @@
+---
+- hosts: centos7
+  roles:
+     - essential-softwares
+
+#- hosts: jenkins
+#  roles:
+#    - openjdk11
+#    - jenkins 
