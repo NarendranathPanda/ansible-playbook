@@ -1,4 +1,4 @@
-controlnode  ansible_host=172.42.42.100 ansible_ssh_port=22 ansible_user=root
+controlnode  ansible_connection=local
 workernode1  ansible_host=172.42.42.101 ansible_ssh_port=22 ansible_user=root
 workernode2  ansible_host=172.42.42.102 ansible_ssh_port=22 ansible_user=root 
 
