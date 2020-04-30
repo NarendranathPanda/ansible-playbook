@@ -1,7 +1,8 @@
-# install open jdk package
-- name: "Yum Install {{ java_version}}"
-  yum:
-    name: "{{ java_version }}"
-    state: latest
-  become: true
-  become_method: sudo 
+--- 
+- name: Unarchive a openjdk that needs to be downloaded 
+  unarchive:
+    src: "{{ openjdk_url }}"
+    dest: /usr/lib/
+    remote_src: yes 
+
+

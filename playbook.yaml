@@ -3,7 +3,7 @@
   roles:
      - essential-softwares
 
-#- hosts: jenkins
-#  roles:
-#    - openjdk11
-#    - jenkins 
+- hosts: jenkins
+  roles:
+    - openjdk11
+    - jenkins 
