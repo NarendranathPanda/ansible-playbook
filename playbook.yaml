@@ -1,15 +1,7 @@
 ---
-- hosts: centos7
-  roles:
-     - essential-softwares
-
 - hosts: jenkins
   roles:
     - openjdk11
-    - jenkins 
+#    - jenkins  
 
-- hosts: sonar
-  roles:
-    - openjdk11
-    - sonar-server
         

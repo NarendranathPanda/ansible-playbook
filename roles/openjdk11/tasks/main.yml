@@ -1,7 +1,12 @@
 ---
-# tasks file for role-openjdk
-- import_tasks: install.yaml
-- import_tasks: configure.yaml
-- import_tasks: service.yaml
 
+- include_tasks: install.yaml
+
+# Environment setup.
+- name: Set JAVA_HOME if configured.
+  template:
+    src: java_home.sh.j2
+    dest: /etc/profile.d/java_home.sh
+    mode: 0644
+  when: java_home is defined and java_home
 

@@ -1,3 +1,0 @@
-# Check the connectivity to the target 
-- name: Check the connectivity
-     ping:

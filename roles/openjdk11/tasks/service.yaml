@@ -1,7 +1,0 @@
-- name: Set Default java for the System 
-  shell: "java -version"
-  become: true
-  become_method: sudo
-  register: installed_version
-- debug:
-   msg: "Java Version : {{installed_version}} installed "

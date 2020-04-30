@@ -1,9 +1,10 @@
 - name: Ensure a list of packages installed
   yum:
     name: "{{ packages }}"
+    state: latest
   vars:
     packages:
     - tree
     - git
     - maven
-
+  
