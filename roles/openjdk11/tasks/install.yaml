@@ -1,4 +1,9 @@
 --- 
+- name: Install the latest java
+  yum:
+    name: java
+    state: latest
+
 - name: Unarchive a openjdk that needs to be downloaded 
   unarchive:
     src: "{{ openjdk_url }}"

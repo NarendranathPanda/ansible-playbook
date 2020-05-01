@@ -2,6 +2,6 @@
 - hosts: jenkins
   roles:
     - openjdk11
-#    - jenkins  
+    - jenkins  
 
         
