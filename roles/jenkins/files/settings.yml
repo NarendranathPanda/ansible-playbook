@@ -89,7 +89,7 @@ JENKINS_HTTPS_KEYSTORE="/var/lib/jenkins/keystore/jenkins-keystore-nokiaca.jks"
 # Password to access the keystore defined in JENKINS_HTTPS_KEYSTORE.
 # Default is disabled.
 #
-JENKINS_HTTPS_KEYSTORE_PASSWORD="IAN10naTEN"
+JENKINS_HTTPS_KEYSTORE_PASSWORD=""
 
 ## Type:        string
 ## Default:     ""
